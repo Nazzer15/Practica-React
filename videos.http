@@ -1,0 +1,28 @@
+### Get all videos
+GET http://localhost:3000/videos
+
+### Get a single video
+GET http://localhost:3000/videos/5fbc05aec5c264217c96e348
+
+### Create a video
+POST  http://localhost:3000/videos
+Content-Type: application/json
+
+{
+    "title": "Video de ejemplo",
+    "description": "Video de ejemplo",
+    "url": "https://youtu.be/ex-wyYDStc4?list=RDRSfrx8OkK6I"
+}
+
+### Delete a video
+DELETE http://localhost:3000/videos/5fbc057bc5c264217c96e347
+
+### Update a video
+PUT http://localhost:3000/videos/5fbc05aec5c264217c96e348
+Content-Type: application/json
+
+{
+    "title": "Video de ejemplo 2"
+}
+
+### 
