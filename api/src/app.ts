@@ -5,7 +5,7 @@ import videosRoutes from './routes/videos.routes';
 
 const app = express ();
 
-app.set('port', 3000);
+app.set('port', 4000);
 //Ve en consola las peticiones del servidor
 app.use(morgan('dev'));
 //Permite que cualquier servidor pueda realizar peticiones y hacer operaciones
