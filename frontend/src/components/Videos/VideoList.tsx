@@ -10,7 +10,19 @@ const VideoList = () => {
 
     const loadVideos = async () => {
         const res = await videoService.getVideos();
-        setVideos(res.data);
+
+        const formatedVideos = res.data.map(video => {
+            return {
+                ...video, 
+                //Aqui convierte el createdAt de string a Date
+                createdAt: video.createdAt ? new Date(video.createdAt): new Date(),
+                updateAt: video.updateAt ? new Date(video.updateAt): new Date(),
+            }
+            //Ordena los video en fecha de creacion
+        }).sort((a,b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+
+        setVideos(formatedVideos);
     }
 
     useEffect(() => {
@@ -20,7 +32,7 @@ const VideoList = () => {
     return (
         <div className="row">
             {videos.map((video) => {
-                return <VideoItem video={video} />
+                return <VideoItem video={video} key={video._id} loadVideos = {loadVideos}/>
             })}
         </div>
     )
